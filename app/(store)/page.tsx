@@ -142,7 +142,7 @@ export default async function HomePage() {
             </p>
 
             <h1 className="mt-6 max-w-3xl text-5xl font-black leading-tight tracking-tight md:text-7xl">
-              Build your own luxury fashion collection.
+              Welcome to <span className="text-champagne">FashionHub</span>
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/72">
