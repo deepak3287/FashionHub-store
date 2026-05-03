@@ -43,3 +43,61 @@ body {
 .btn-light {
   @apply inline-flex items-center justify-center rounded-xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:bg-softgray;
 }
+.btn-primary,
+.btn-gold,
+.btn-light {
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.btn-primary:hover,
+.btn-gold:hover,
+.btn-light:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.18);
+}
+
+.btn-primary:active,
+.btn-gold:active,
+.btn-light:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-primary::after,
+.btn-gold::after,
+.btn-light::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+
+.btn-primary:hover::after,
+.btn-gold:hover::after,
+.btn-light:hover::after {
+  animation: buttonShine 0.75s ease;
+}
+
+@keyframes buttonShine {
+  0% {
+    left: -120%;
+  }
+  100% {
+    left: 140%;
+  }
+}
