@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { MetadataRoute } from "next";
 import { connectDB } from "@/lib/db";
 import { Product } from "@/lib/models";
