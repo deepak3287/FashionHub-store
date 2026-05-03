@@ -164,26 +164,26 @@ export default async function HomePage() {
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
                 <Crown className="text-champagne" size={24} />
-                <p className="mt-3 text-sm font-bold">Premium UI</p>
-                <p className="mt-1 text-xs text-white/55">
-                  Luxury fashion brand feel
-                </p>
+                <p className="mt-3 text-sm font-bold">Premium Quality</p>
+<p className="mt-1 text-xs text-white/55">
+  High-quality fashion curated for you
+</p>
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
                 <LockKeyhole className="text-champagne" size={24} />
-                <p className="mt-3 text-sm font-bold">Admin Controlled</p>
-                <p className="mt-1 text-xs text-white/55">
-                  Only owner can manage products
-                </p>
+                <p className="mt-3 text-sm font-bold">Secure Payments</p>
+<p className="mt-1 text-xs text-white/55">
+  Safe and encrypted checkout process
+</p>
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
                 <CreditCard className="text-champagne" size={24} />
-                <p className="mt-3 text-sm font-bold">Prepaid Only</p>
-                <p className="mt-1 text-xs text-white/55">
-                  No COD checkout flow
-                </p>
+               <p className="mt-3 text-sm font-bold">Fast Delivery</p>
+<p className="mt-1 text-xs text-white/55">
+  Quick and reliable shipping across India
+</p>
               </div>
             </div>
           </div>
