@@ -1,11 +1,24 @@
-export default function Page() {
+import Link from "next/link";
+import { connectDB } from "@/lib/db";
+import { Review } from "@/lib/models";
+import AdminReviewTable from "./review-table";
+
+async function getReviews() {
+  await connectDB();
+  const reviews = await Review.find({}).sort({ createdAt: -1 }).lean();
+  return JSON.parse(JSON.stringify(reviews));
+}
+
+export default async function AdminReviewsPage() {
+  const reviews = await getReviews();
+
   return (
-    <div className="premium-card p-8">
-      <h1 className="text-2xl font-black">Reviews & Ratings</h1>
-      <p className="mt-3 max-w-2xl text-black/60">Approve, reject or delete customer reviews.</p>
-      <p className="mt-6 rounded-xl bg-cream p-4 text-sm text-black/65">
-        This page is scaffolded. Connect it to the matching API/model and form fields based on your business workflow.
-      </p>
+    <div>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-black">Manage Reviews</h1>
+      </div>
+
+      <AdminReviewTable reviews={reviews} />
     </div>
   );
 }

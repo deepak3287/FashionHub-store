@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { Truck, RotateCcw, Ruler } from "lucide-react";
 import { ProductCard } from "@/components/ProductCard";
 import { AddToCartButton } from "@/components/AddToCartButton";
+import ReviewSubmissionForm from "@/components/ReviewSubmissionForm";
+import ReviewList from "@/components/ReviewList";
 import { connectDB } from "@/lib/db";
 import { Product } from "@/lib/models";
 import { formatCurrency } from "@/lib/format";
@@ -135,6 +137,9 @@ export default async function ProductPage({ params }: { params: { slug: string }
           </div>
         </div>
       </div>
+
+      <ReviewList productId={product._id} />
+      <ReviewSubmissionForm productId={product._id} />
 
       <section className="mt-16">
         <h2 className="text-3xl font-black">Related products</h2>
