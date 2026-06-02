@@ -1,34 +1,114 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { auth } from "@/lib/firebase";
+import {
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
+  sendPasswordResetEmail
+} from "firebase/auth";
 
-export default function LoginPage() {
-  const [form, setForm] = useState({ email: "", password: "" });
-  const [error, setError] = useState("");
+export default function AccountPage() {
+  const [user, setUser] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isSignup, setIsSignup] = useState(false);
 
-  async function submit(e: React.FormEvent) {
-    e.preventDefault();
-    setError("");
-    const res = await fetch("/api/auth/login", { method: "POST", body: JSON.stringify(form) });
-    const data = await res.json();
-    if (!res.ok) return setError(data.error || "Login failed");
-    window.location.href = data.user.role === "admin" ? "/admin/dashboard" : "/account";
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (u) => {
+      setUser(u);
+    });
+    return () => unsub();
+  }, []);
+
+  // LOGIN
+  const handleLogin = async () => {
+    await signInWithEmailAndPassword(auth, email, password);
+  };
+
+  // SIGNUP
+  const handleSignup = async () => {
+    await createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  // GOOGLE LOGIN
+  const googleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+    await signInWithPopup(auth, provider);
+  };
+
+  // FORGOT PASSWORD
+  const forgotPassword = async () => {
+    await sendPasswordResetEmail(auth, email);
+    alert("Reset email sent!");
+  };
+
+  // LOGOUT
+  const logout = async () => {
+    await signOut(auth);
+  };
+
+  // IF LOGGED IN
+  if (user) {
+    return (
+      <div style={{ padding: 20 }}>
+        <h2>My Account</h2>
+        <p>{user.email}</p>
+        <button onClick={logout}>Logout</button>
+      </div>
+    );
   }
 
+  // LOGIN / SIGNUP UI
   return (
-    <main className="premium-container py-16">
-      <form onSubmit={submit} className="premium-card mx-auto max-w-md p-8">
-        <h1 className="text-3xl font-black">Login</h1>
-        <p className="mt-2 text-sm text-black/60">Access your EOR account.</p>
-        <div className="mt-6 grid gap-4">
-          <input className="input" placeholder="Email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
-          <input className="input" type="password" placeholder="Password" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} />
-          {error && <p className="text-sm text-red-600">{error}</p>}
-          <button className="btn-primary">Login</button>
-        </div>
-        <p className="mt-5 text-sm">New here? <Link href="/register" className="font-bold text-mutedgold">Create account</Link></p>
-      </form>
-    </main>
+    <div style={{ maxWidth: 350, margin: "auto", padding: 20 }}>
+      <h2>{isSignup ? "Sign Up" : "Login"}</h2>
+
+      <input
+        placeholder="Email"
+        onChange={(e) => setEmail(e.target.value)}
+        style={{ width: "100%", marginBottom: 10 }}
+      />
+
+      <input
+        placeholder="Password"
+        type="password"
+        onChange={(e) => setPassword(e.target.value)}
+        style={{ width: "100%", marginBottom: 10 }}
+      />
+
+      {isSignup ? (
+        <button onClick={handleSignup}>Sign Up</button>
+      ) : (
+        <button onClick={handleLogin}>Login</button>
+      )}
+
+      <br /><br />
+
+      <button onClick={googleLogin}>
+        Continue with Google
+      </button>
+
+      <br /><br />
+
+      <button onClick={forgotPassword}>
+        Forgot Password
+      </button>
+
+      <br /><br />
+
+      <p
+        style={{ cursor: "pointer", color: "blue" }}
+        onClick={() => setIsSignup(!isSignup)}
+      >
+        {isSignup
+          ? "Already have account? Login"
+          : "New user? Create account"}
+      </p>
+    </div>
   );
 }
