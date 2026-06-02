@@ -7,11 +7,11 @@ async function seed() {
   await connectDB();
 
   await User.findOneAndUpdate(
-    { email: "admin@EOR.local" },
+    { email: "eor30@gmail.com" },
     {
       name: "EOR Admin",
-      email: "admin@EOR.local",
-      passwordHash: await bcrypt.hash("Admin@12345", 12),
+      email: "eor30@gmail.com",
+      passwordHash: await bcrypt.hash("32875902", 12),
       role: "admin"
     },
     { upsert: true, new: true }

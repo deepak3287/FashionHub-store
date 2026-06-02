@@ -36,9 +36,19 @@ export async function POST(req: Request) {
         await order.save();
 
         for (const item of order.items) {
-          await Product.findByIdAndUpdate(item.productId, {
-            $inc: { stock: -item.quantity, sold: item.quantity }
-          });
+          const product = await Product.findById(item.productId);
+          if (!product) continue;
+          // decrement variant stock if size present
+          if (item.size && product.variants && product.variants.length) {
+            const variant = product.variants.find((v: any) => v.size === item.size);
+            if (variant) {
+              variant.stock = Math.max(0, variant.stock - item.quantity);
+            }
+          }
+          // recompute total stock and sold
+          product.stock = (product.variants || []).reduce((s: number, v: any) => s + (v.stock || 0), 0);
+          product.sold = (product.sold || 0) + item.quantity;
+          await product.save();
         }
       }
     }

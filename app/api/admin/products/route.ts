@@ -20,8 +20,11 @@ export async function POST(req: NextRequest) {
   try {
     await connectDB();
     const body = productSchema.parse(await req.json());
+    // compute total stock from variants if provided
+    const totalStock = (body.variants || []).reduce((s: number, v: any) => s + (v.stock || 0), 0);
     const product = await Product.create({
       ...body,
+      stock: totalStock,
       slug: body.slug || slugify(body.title)
     });
     return NextResponse.json({ product }, { status: 201 });

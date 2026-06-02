@@ -25,6 +25,8 @@ export const productSchema = z.object({
   tags: z.array(z.string()).default([]),
   sizes: z.array(z.string()).default([]),
   colors: z.array(z.string()).default([]),
+  // variants: array of { size, stock }
+  variants: z.array(z.object({ size: z.string(), stock: z.coerce.number().int().min(0) })).default([]),
   stock: z.coerce.number().int().min(0),
   images: z.array(z.string().url()).min(1),
   featured: z.boolean().default(false),
