@@ -6,7 +6,7 @@ import { Trash2 } from "lucide-react";
 import { CartItem } from "@/lib/types";
 import { formatCurrency } from "@/lib/format";
 
-const CART_KEY = "fashionhub_cart";
+const CART_KEY = "EOR_cart";
 
 export function getLocalCart(): CartItem[] {
   if (typeof window === "undefined") return [];
@@ -54,7 +54,7 @@ export default function CartClient() {
       <div className="premium-container py-16">
         <div className="premium-card mx-auto max-w-xl p-10 text-center">
           <h1 className="text-3xl font-black">Your cart is empty</h1>
-          <p className="mt-3 text-black/60">Explore premium fashion products and add them to your cart.</p>
+          <p className="mt-3 text-black/60">Explore premium products and add them to your cart.</p>
           <Link href="/shop" className="btn-primary mt-6">Shop Now</Link>
         </div>
       </div>
@@ -107,7 +107,7 @@ export default function CartClient() {
             <div className="border-t pt-3 flex justify-between text-lg"><span>Total</span><b>{formatCurrency(totals.total)}</b></div>
           </div>
           <div className="mt-5 rounded-xl bg-cream p-3 text-xs text-black/65">
-            Secure prepaid checkout only. COD is not available on FashionHub.
+            Secure prepaid checkout only. COD is not available on EOR.
           </div>
           <Link href="/checkout" className="btn-gold mt-5 w-full">Proceed to Checkout</Link>
         </aside>

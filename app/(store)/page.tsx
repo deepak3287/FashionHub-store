@@ -138,15 +138,15 @@ export default async function HomePage() {
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-champagne/40 bg-champagne/10 px-4 py-2 text-sm font-semibold text-champagne">
               <Sparkles size={16} />
-              Premium Fashion Ecommerce
+              Premium Ecommerce
             </p>
 
             <h1 className="mt-6 max-w-3xl text-5xl font-black leading-tight tracking-tight md:text-7xl">
-              Welcome to <span className="text-champagne">FashionHub</span>
+              Welcome to <span className="text-champagne">EOR</span>
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/72">
-              FashionHub is your premium online fashion store. Add your own
+              EOR is your premium online store. Add your own
               products from the admin dashboard and showcase only your real
               collection.
             </p>
@@ -166,7 +166,7 @@ export default async function HomePage() {
                 <Crown className="text-champagne" size={24} />
                 <p className="mt-3 text-sm font-bold">Premium Quality</p>
 <p className="mt-1 text-xs text-white/55">
-  High-quality fashion curated for you
+  High-quality products curated for you
 </p>
               </div>
 
@@ -194,7 +194,7 @@ export default async function HomePage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm font-semibold text-mutedgold">
-                      FashionHub
+                      EOR
                     </p>
                     <h2 className="mt-1 text-3xl font-black text-ink">
                       Your Collection
@@ -279,7 +279,7 @@ export default async function HomePage() {
         <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <p className="font-semibold text-mutedgold">Shop by category</p>
-            <h2 className="mt-2 text-4xl font-black">Fashion collections</h2>
+            <h2 className="mt-2 text-4xl font-black">Collections</h2>
             <p className="mt-3 max-w-2xl text-black/60">
               These are category entry points. Product cards will appear only
               when you add real products from the admin panel.
@@ -422,7 +422,7 @@ export default async function HomePage() {
             <p className="font-semibold text-mutedgold">Store owner panel</p>
 
             <h2 className="mt-2 text-4xl font-black">
-              Add your own products, manage orders and grow FashionHub.
+              Add your own products, manage orders and grow EOR.
             </h2>
 
             <p className="mt-4 leading-8 text-black/65">
@@ -449,7 +449,7 @@ export default async function HomePage() {
         <div className="rounded-3xl bg-ink p-8 text-white shadow-premium md:p-12">
           <div className="grid gap-8 lg:grid-cols-[1fr_420px] lg:items-center">
             <div>
-              <p className="font-semibold text-champagne">FashionHub updates</p>
+              <p className="font-semibold text-champagne">EOR updates</p>
 
               <h2 className="mt-2 text-4xl font-black">
                 Build a premium customer list.

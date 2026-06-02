@@ -5,9 +5,9 @@ export function Footer() {
     <footer className="mt-20 bg-ink text-white">
       <div className="premium-container grid gap-10 py-14 md:grid-cols-4">
         <div>
-          <h3 className="text-2xl font-black">Fashion<span className="text-champagne">Hub</span></h3>
+          <h3 className="text-2xl font-black">EOR</h3>
           <p className="mt-4 text-sm leading-6 text-white/70">
-            Premium prepaid-only fashion ecommerce experience for modern shoppers.
+            Premium prepaid-only ecommerce experience for modern shoppers.
           </p>
         </div>
         <div>
@@ -37,7 +37,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 py-5 text-center text-xs text-white/50">
-        © {new Date().getFullYear()} FashionHub. All rights reserved.
+        © {new Date().getFullYear()} EOR. All rights reserved.
       </div>
     </footer>
   );

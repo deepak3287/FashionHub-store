@@ -20,7 +20,7 @@ export default function RegisterPage() {
     <main className="premium-container py-16">
       <form onSubmit={submit} className="premium-card mx-auto max-w-md p-8">
         <h1 className="text-3xl font-black">Create account</h1>
-        <p className="mt-2 text-sm text-black/60">Start shopping premium fashion.</p>
+        <p className="mt-2 text-sm text-black/60">Start shopping at EOR.</p>
         <div className="mt-6 grid gap-4">
           <input className="input" placeholder="Name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
           <input className="input" placeholder="Email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />

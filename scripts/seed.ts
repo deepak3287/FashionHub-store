@@ -7,10 +7,10 @@ async function seed() {
   await connectDB();
 
   await User.findOneAndUpdate(
-    { email: "admin@fashionhub.local" },
+    { email: "admin@EOR.local" },
     {
-      name: "FashionHub Admin",
-      email: "admin@fashionhub.local",
+      name: "EOR Admin",
+      email: "admin@EOR.local",
       passwordHash: await bcrypt.hash("Admin@12345", 12),
       role: "admin"
     },
@@ -33,7 +33,7 @@ async function seed() {
       price: 2499,
       salePrice: 1899,
       category: "Men",
-      brand: "FashionHub",
+      brand: "EOR",
       fabric: "Linen blend",
       sku: "FH-MEN-SHIRT-001",
       sizes: ["S", "M", "L", "XL"],
@@ -50,7 +50,7 @@ async function seed() {
       price: 4999,
       salePrice: 3799,
       category: "Women",
-      brand: "FashionHub",
+      brand: "EOR",
       fabric: "Satin",
       sku: "FH-WOMEN-DRESS-001",
       sizes: ["XS", "S", "M", "L"],
@@ -62,11 +62,11 @@ async function seed() {
     },
     {
       title: "Minimal White Sneakers",
-      description: "Clean premium sneakers designed for comfort and everyday fashion.",
+      description: "Clean premium sneakers designed for comfort and everyday style.",
       price: 3299,
       salePrice: 2599,
       category: "Footwear",
-      brand: "FashionHub",
+      brand: "EOR",
       fabric: "Vegan leather",
       sku: "FH-SHOE-001",
       sizes: ["6", "7", "8", "9", "10"],
@@ -81,7 +81,7 @@ async function seed() {
       price: 3999,
       salePrice: 2999,
       category: "Accessories",
-      brand: "FashionHub",
+      brand: "EOR",
       fabric: "PU leather",
       sku: "FH-BAG-001",
       colors: ["Black", "Brown"],
@@ -100,8 +100,8 @@ async function seed() {
   }
 
   await Coupon.findOneAndUpdate(
-    { code: "FASHION10" },
-    { code: "FASHION10", type: "percentage", value: 10, minOrderValue: 999, active: true },
+    { code: "EOR10" },
+    { code: "EOR10", type: "percentage", value: 10, minOrderValue: 999, active: true },
     { upsert: true }
   );
 
@@ -118,10 +118,10 @@ async function seed() {
   );
 
   await StoreSetting.findOneAndUpdate(
-    { storeName: "FashionHub" },
+    { storeName: "EOR" },
     {
-      storeName: "FashionHub",
-      contactEmail: "support@fashionhub.local",
+      storeName: "EOR",
+      contactEmail: "support@EOR.local",
       contactPhone: "+91 99999 99999",
       invoicePrefix: "FH",
       shippingPolicy: "Tracked courier shipping. Free shipping above ₹1,999.",

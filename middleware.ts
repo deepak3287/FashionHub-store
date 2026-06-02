@@ -3,7 +3,7 @@ import { verifyToken } from "@/lib/auth";
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
-  const token = req.cookies.get("fashionhub_token")?.value;
+  const token = req.cookies.get("EOR_token")?.value;
   const user = await verifyToken(token);
 
   if (pathname.startsWith("/admin") && pathname !== "/admin/login") {

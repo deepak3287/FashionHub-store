@@ -63,7 +63,7 @@ export default async function ProductPage({ params }: { params: { slug: string }
         </div>
 
         <div>
-          <p className="text-sm font-semibold text-mutedgold">{product.brand || "FashionHub Premium"}</p>
+          <p className="text-sm font-semibold text-mutedgold">{product.brand || "EOR Premium"}</p>
           <h1 className="mt-2 text-4xl font-black">{product.title}</h1>
           <div className="mt-4 flex items-center gap-3">
             {product.salePrice && <span className="text-3xl font-black">{formatCurrency(product.salePrice)}</span>}

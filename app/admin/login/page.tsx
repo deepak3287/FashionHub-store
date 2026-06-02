@@ -21,7 +21,7 @@ export default function AdminLoginPage() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-ink p-4">
       <form onSubmit={submit} className="w-full max-w-md rounded-3xl bg-white p-8 shadow-premium">
-        <p className="text-sm font-semibold text-mutedgold">FashionHub owner access</p>
+        <p className="text-sm font-semibold text-mutedgold">EOR owner access</p>
         <h1 className="mt-2 text-3xl font-black">Admin Login</h1>
         <p className="mt-2 text-sm text-black/60">Only the store owner/admin can access this dashboard.</p>
         <div className="mt-6 grid gap-4">

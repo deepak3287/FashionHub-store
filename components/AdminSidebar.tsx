@@ -32,7 +32,7 @@ export function AdminSidebar() {
   return (
     <aside className="fixed inset-y-0 left-0 hidden w-72 border-r border-white/10 bg-ink p-5 text-white lg:block">
       <Link href="/" className="mb-8 flex items-center gap-2 text-2xl font-black">
-        <Home className="text-champagne" /> Fashion<span className="text-champagne">Hub</span>
+        <Home className="text-champagne" /> EOR
       </Link>
       <nav className="grid gap-1">
         {links.map((link) => {

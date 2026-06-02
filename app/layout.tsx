@@ -4,22 +4,29 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "FashionHub - Premium Fashion Ecommerce",
-    template: "%s | FashionHub"
+    default: "EOR",
+    template: "%s | EOR",
   },
-  description: "Premium fashion ecommerce platform with prepaid secure checkout.",
+  description: "Premium ecommerce platform with secure checkout.",
   openGraph: {
-    title: "FashionHub",
-    description: "Premium fashion ecommerce platform.",
-    type: "website"
-  }
+    title: "EOR",
+    description: "Premium ecommerce platform.",
+    type: "website",
+  },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body>
-        <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="afterInteractive" />
+        <Script
+          src="https://checkout.razorpay.com/v1/checkout.js"
+          strategy="afterInteractive"
+        />
         {children}
       </body>
     </html>

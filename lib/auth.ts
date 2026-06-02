@@ -30,17 +30,17 @@ export async function verifyToken(token?: string): Promise<SessionUser | null> {
 }
 
 export async function getCurrentUser() {
-  const token = cookies().get("fashionhub_token")?.value;
+  const token = cookies().get("EOR_token")?.value;
   return verifyToken(token);
 }
 
 export async function getUserFromRequest(req: NextRequest) {
-  const token = req.cookies.get("fashionhub_token")?.value;
+  const token = req.cookies.get("EOR_token")?.value;
   return verifyToken(token);
 }
 
 export function setAuthCookie(token: string) {
-  cookies().set("fashionhub_token", token, {
+  cookies().set("EOR_token", token, {
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
@@ -50,5 +50,5 @@ export function setAuthCookie(token: string) {
 }
 
 export function clearAuthCookie() {
-  cookies().delete("fashionhub_token");
+  cookies().delete("EOR_token");
 }

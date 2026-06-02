@@ -1,6 +1,6 @@
-# FashionHub - Premium Full-Stack Ecommerce Starter
+# EOR - Premium Full-Stack Ecommerce Starter
 
-FashionHub is a premium fashion ecommerce starter built with **Next.js App Router, TypeScript, MongoDB, Tailwind CSS, JWT cookies, Razorpay/Stripe-ready payment APIs, and a protected admin dashboard**.
+EOR is a premium fashion ecommerce starter built with **Next.js App Router, TypeScript, MongoDB, Tailwind CSS, JWT cookies, Razorpay/Stripe-ready payment APIs, and a protected admin dashboard**.
 
 ## What is included
 
@@ -42,7 +42,7 @@ http://localhost:3000
 Admin login:
 
 ```txt
-Email: admin@fashionhub.local
+Email: admin@EOR.local
 Password: Admin@12345
 ```
 

@@ -2,7 +2,7 @@ import mongoose, { Schema, models } from "mongoose";
 
 const StoreSettingSchema = new Schema(
   {
-    storeName: { type: String, default: "FashionHub" },
+    storeName: { type: String, default: "EOR" },
     logo: String,
     contactEmail: String,
     contactPhone: String,

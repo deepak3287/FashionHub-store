@@ -45,9 +45,9 @@ export default async function ShopPage({ searchParams }: Props) {
   return (
     <main className="premium-container py-10">
       <div className="rounded-3xl bg-ink p-8 text-white">
-        <p className="text-champagne">FashionHub collection</p>
-        <h1 className="mt-2 text-4xl font-black">Shop premium fashion</h1>
-        <p className="mt-3 text-white/70">Search, filter and discover your next outfit.</p>
+        <p className="text-champagne">EOR collection</p>
+        <h1 className="mt-2 text-4xl font-black">Shop premium products</h1>
+        <p className="mt-3 text-white/70">Search, filter and discover your next item.</p>
       </div>
 
       <form className="mt-8 grid gap-3 premium-card p-4 md:grid-cols-[1fr_180px_180px_160px]">

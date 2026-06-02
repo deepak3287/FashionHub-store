@@ -75,7 +75,7 @@ export function ProductCard({ product }: Props) {
       <div className="p-5">
         <div className="flex items-center justify-between gap-3">
           <span className="rounded-full bg-cream px-3 py-1 text-xs font-bold text-mutedgold">
-            FashionHub
+            EOR
           </span>
 
           <div className="flex items-center gap-1 text-xs font-bold text-mutedgold">

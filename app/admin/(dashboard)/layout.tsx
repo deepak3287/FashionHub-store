@@ -12,7 +12,7 @@ export default async function AdminDashboardLayout({ children }: { children: Rea
           <div className="flex h-16 items-center justify-between px-5 lg:px-8">
             <div>
               <p className="text-sm text-black/50">Admin Panel</p>
-              <h1 className="font-black">FashionHub Dashboard</h1>
+              <h1 className="font-black">EOR Dashboard</h1>
             </div>
             <div className="text-right text-sm">
               <p className="font-bold">{user?.name}</p>

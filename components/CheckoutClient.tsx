@@ -74,8 +74,8 @@ export default function CheckoutClient() {
         key: data.keyId,
         amount: data.amount,
         currency: "INR",
-        name: "FashionHub",
-        description: "Prepaid FashionHub Order",
+        name: "EOR",
+        description: "Prepaid EOR Order",
         order_id: data.razorpayOrderId,
         prefill: {
           name: form.name,

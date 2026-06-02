@@ -9,7 +9,7 @@ export async function Header() {
     <header className="sticky top-0 z-40 border-b border-black/10 bg-cream/95 backdrop-blur">
       <div className="premium-container flex h-20 items-center justify-between">
         <Link href="/" className="text-2xl font-black tracking-tight">
-          Fashion<span className="text-mutedgold">Hub</span>
+          EOR
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
