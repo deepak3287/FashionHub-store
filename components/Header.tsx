@@ -1,9 +1,22 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ShoppingBag, Search, Heart, User } from "lucide-react";
-import { getCurrentUser } from "@/lib/auth";
+import { onAuthStateChanged, User as FirebaseUser } from "firebase/auth";
+import { auth } from "@/lib/firebase";
 
-export async function Header() {
-  const user = await getCurrentUser();
+export function Header() {
+  const [user, setUser] = useState<FirebaseUser | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (u) => {
+      setUser(u);
+      setLoading(false);
+    });
+    return () => unsub();
+  }, []);
 
   return (
     <header className="sticky top-0 z-40 border-b border-black/10 bg-cream/95 backdrop-blur">
@@ -27,7 +40,7 @@ export async function Header() {
           <Link href="/wishlist" className="hidden rounded-full p-2 hover:bg-white sm:block">
             <Heart size={20} />
           </Link>
-          <Link href={user ? "/account" : "/login"} className="hidden rounded-full p-2 hover:bg-white sm:block">
+          <Link href={!loading && user ? "/account" : "/login"} className="hidden rounded-full p-2 hover:bg-white sm:block">
             <User size={20} />
           </Link>
           <Link href="/cart" className="relative rounded-full bg-ink p-3 text-white">
