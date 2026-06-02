@@ -14,6 +14,9 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
     const body = productSchema.partial().parse(await req.json());
     const update: any = { ...body };
     if (body.title && !body.slug) update.slug = slugify(body.title);
+    if (body.variants) {
+      update.stock = (body.variants || []).reduce((s: number, v: any) => s + (v.stock || 0), 0);
+    }
 
     const product = await Product.findByIdAndUpdate(params.id, update, { new: true });
     return NextResponse.json({ product });

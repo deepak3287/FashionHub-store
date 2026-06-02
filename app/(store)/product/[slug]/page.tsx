@@ -4,6 +4,10 @@ import { notFound } from "next/navigation";
 import { Truck, RotateCcw, Ruler } from "lucide-react";
 import { ProductCard } from "@/components/ProductCard";
 import { AddToCartButton } from "@/components/AddToCartButton";
+import ReviewSubmissionForm from "@/components/ReviewSubmissionForm";
+import ReviewList from "@/components/ReviewList";
+import ProductImageGallery from "@/components/ProductImageGallery";
+import ProductActions from "@/components/ProductActions";
 import { connectDB } from "@/lib/db";
 import { Product } from "@/lib/models";
 import { formatCurrency } from "@/lib/format";
@@ -57,9 +61,9 @@ export default async function ProductPage({ params }: { params: { slug: string }
               </div>
             ))}
           </div>
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-softgray shadow-premium">
-            <Image src={image} alt={product.title} fill priority className="object-cover" />
-          </div>
+            <div>
+              <ProductImageGallery images={product.images || []} />
+            </div>
         </div>
 
         <div>
@@ -98,21 +102,8 @@ export default async function ProductPage({ params }: { params: { slug: string }
             <p className="mt-1 text-black/55">Delivery estimate: 3-7 business days after prepaid payment confirmation.</p>
           </div>
 
-          <div className="mt-6 flex gap-3">
-            <AddToCartButton
-              disabled={product.stock === 0}
-              item={{
-                productId: product._id,
-                title: product.title,
-                slug: product.slug,
-                image,
-                price: product.price,
-                salePrice: product.salePrice,
-                quantity: 1,
-                size: product.sizes?.[0],
-                color: product.colors?.[0]
-              }}
-            />
+          <ProductActions product={product} image={image} />
+          <div className="mt-4">
             <Link href="/checkout" className="btn-gold w-full">Buy Now</Link>
           </div>
 
@@ -135,6 +126,9 @@ export default async function ProductPage({ params }: { params: { slug: string }
           </div>
         </div>
       </div>
+
+      <ReviewList productId={product._id} />
+      <ReviewSubmissionForm productId={product._id} />
 
       <section className="mt-16">
         <h2 className="text-3xl font-black">Related products</h2>

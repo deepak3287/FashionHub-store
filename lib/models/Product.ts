@@ -15,6 +15,9 @@ const ProductSchema = new Schema(
     tags: [String],
     sizes: [String],
     colors: [String],
+    // Variant inventory: array of { size, stock }
+    variants: [{ size: String, stock: { type: Number, default: 0 } }],
+    // total stock (sum of variant stocks) kept for backward compatibility
     stock: { type: Number, default: 0 },
     images: [String],
     rating: { type: Number, default: 0 },

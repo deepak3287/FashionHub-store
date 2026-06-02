@@ -42,8 +42,8 @@ http://localhost:3000
 Admin login:
 
 ```txt
-Email: admin@EOR.local
-Password: Admin@12345
+Email: eor30@gmail.com
+Password: 32875902
 ```
 
 ## Notes before production
